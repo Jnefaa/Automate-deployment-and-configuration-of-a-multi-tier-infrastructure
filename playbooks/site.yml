@@ -1,0 +1,24 @@
+- hosts: all
+  become: yes
+  roles:
+    - common
+
+- hosts: loadbalancer
+  become: yes
+  roles:
+    - loadbalancer
+
+- hosts: appservers
+  become: yes
+  roles:
+    - appserver
+
+- hosts: database
+  become: yes
+  roles:
+    - database
+
+- hosts: monitoring
+  become: yes
+  roles:
+    - monitoring

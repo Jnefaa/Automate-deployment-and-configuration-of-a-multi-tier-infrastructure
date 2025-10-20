@@ -1,0 +1,11 @@
+[loadbalancer]
+lb 
+[appservers]
+app1 
+app2 
+
+[database]
+db 
+
+[monitoring]
+mon  
