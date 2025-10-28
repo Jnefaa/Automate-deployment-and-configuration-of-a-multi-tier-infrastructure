@@ -1,0 +1,24 @@
+---
+- name: Install Node.js
+  ansible.builtin.yum:
+    name: nodejs
+    state: present
+
+- name: Clone the app from GitHub
+  ansible.builtin.git:
+    repo: 'https://github.com/xboxfly15/node_web-block-pages.git'
+    dest: /opt/nodeapp
+
+- name: Install app dependencies
+  ansible.builtin.command:
+    cmd: npm install
+    chdir: /opt/nodeapp
+
+- name: Start the app with PM2
+  ansible.builtin.npm:
+    name: pm2
+    global: true
+
+- name: Run the app
+  ansible.builtin.command:
+    cmd: pm2 start /opt/nodeapp/app.js --name nodeapp

@@ -1,0 +1,9 @@
+---
+- name: Configure load balancer
+  hosts: loadbalancer
+  become: yes
+  vars_files:
+    - ../vars/global.yml
+  roles:
+    - common
+    - loadbalancer

@@ -1,0 +1,16 @@
+---
+- name: Install Nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
+
+- name: Configure Nginx load balancer
+  ansible.builtin.template:
+    src: loadbalancer.conf.j2
+    dest: /etc/nginx/conf.d/loadbalancer.conf
+
+- name: Enable and start Nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true

@@ -1,0 +1,20 @@
+---
+- name: Ensure system packages are up to date
+  ansible.builtin.yum:
+    name: '*'
+    state: latest
+
+- name: Install base tools
+  ansible.builtin.yum:
+    name:
+      - vim
+      - curl
+      - git
+      - wget
+    state: present
+
+- name: Ensure firewalld is enabled
+  ansible.builtin.service:
+    name: firewalld
+    state: started
+    enabled: true

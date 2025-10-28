@@ -1,0 +1,9 @@
+---
+- name: Deploy application servers
+  hosts: appservers
+  become: yes
+  vars_files:
+    - ../vars/global.yml
+  roles:
+    - common
+    - appserver

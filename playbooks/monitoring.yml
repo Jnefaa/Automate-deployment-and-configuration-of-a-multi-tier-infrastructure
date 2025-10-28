@@ -1,0 +1,9 @@
+---
+- name: Configure monitoring server
+  hosts: monitoring
+  become: yes
+  vars_files:
+    - ../vars/monitoring-vars.yml
+  roles:
+    - common
+    - monitoring
